@@ -1,0 +1,32 @@
+{% extends 'users/base.html' %} {% block body %}
+
+<h1 align="middle">
+  <strong><br />Edit team member</strong>
+</h1>
+<h3 align="middle" style="color: darkgray">
+  Edit email, phone number and role.
+</h3>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Info</div>
+        </div>
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %} {% for field in form%}
+            <div class="form-group">{{ field.name }} <br />{{ field}}</div>
+            {% endfor %}
+            <a href="{% url 'users:delete' member.id %}" class="btn btn-danger"
+              >Delete</a
+            >
+            <button class="btn btn-primary" type="submit">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

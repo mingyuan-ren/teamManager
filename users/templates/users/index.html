@@ -1,0 +1,43 @@
+{% extends 'users/base.html' %} {% block body %}
+<a href="{% url 'users:add' %}" class="btn btn-primary btn-lg">
+  <span class="glyphicon glyphicon-plus"></span>
+  + Team Member
+</a>
+<h1 align="middle">
+  <strong><br />Team members</strong>
+</h1>
+{% if member_list %}
+<h4 align="middle" style="color: darkgray">
+  You have {{member_list.count}} team members.
+</h4>
+
+{% for member in member_list %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-1 offset-md-4">
+      <img
+        class="card"
+        width="100px"
+        src="https://us.123rf.com/450wm/caiquame/caiquame2101/caiquame210100429/163283955-blank-man-profile-head-icon-placeholder.jpg?ver=6"
+      />
+    </div>
+    <div class="col-md-3">
+      <div class="btn-group">
+        <a href="{% url 'users:edit' member.id %}"
+          ><button class="btn btn-default">
+            <h4><strong>{{ member }}</strong></h4>
+            <h5>{{ member.email }}</h5>
+            <h5>{{ member.phone }}</h5>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+
+{% endfor %} {% else %}
+<h4 align="middle" style="color: darkgray">
+  Please add the first team member.
+</h4>
+{% endif %} {% endblock %}

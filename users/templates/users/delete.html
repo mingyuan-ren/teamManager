@@ -1,0 +1,9 @@
+{% extends 'users/base.html' %} {% block body %}
+<form method="POST">
+  {% csrf_token %}
+  <h3>
+    Are you sure you want to delete {{ member.firstname}} {{member.lastname}}?
+  </h3>
+  <button type="submit">Confirm</button>
+</form>
+{% endblock %}
