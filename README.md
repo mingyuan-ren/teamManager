@@ -6,6 +6,12 @@ With this app, you can list all of the team members in your team, add a team mem
 
 Every member has a profile including first name, last name, phone number and email address. Meanwhile, members can be an admin member or a regular one. Admin member will be shown as "Admin" when listed in the member list page.
 
+## Test
+
+You can execute this line to run the tests:
+
+`python manage.py test`
+
 ## Set Up
 
 You will need to install Django first to run this app. After clone it to your device, navigate to the folder which has a "manage.py" file, and execute:
